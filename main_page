@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила ZWorld | Официальный сайт</title>
+    <style>
+        :root {
+            --primary: #0066ff;
+            --secondary: #00e1ff;
+            --accent: #ff4757;
+            --bg: #f8fbff;
+            --text: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Futura', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .parallax-bg {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
+            z-index: -2;
+            opacity: 0.1;
+        }
+
+        .floating-circles div {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(0, 102, 255, 0.05);
+            z-index: -1;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10vw, 10vh); }
+            50% { transform: translate(-5vw, 15vh); }
+            75% { transform: translate(-10vw, -5vh); }
+        }
+
+        header {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.5)); }
+        }
+
+        nav {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            display: block;
+            margin: 1rem 0;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .section.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .rule-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .rule-number::before {
+            content: ' ❖';
+            position: absolute;
+            left: -10;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 1.2rem;
+            height: 1.2rem;
+            background: ;
+            border-radius: 50%;
+        }
+
+        .rule-content {
+            line-height: 1.8;
+            margin-left: 2rem;
+            border-left: 3px solid var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .penalty {
+            display: inline-block;
+            background: rgba(255, 71, 87, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .penalty2 {
+            display: inline-block;
+            background: rgba(170, 254, 255, 0.2);
+            color: green;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(45, 52, 54, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax-bg"></div>
+    <div class="floating-circles">
+        <div style="width: 300px; height: 300px; top: 20%; left: 10%"></div>
+        <div style="width: 200px; height: 200px; top: 60%; right: 15%"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h1>Правила ZWorld</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#main">Основные правила</a>
+        <a href="#game">Игровые правила</a>
+        <a href="#penalties">Наказания</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="container">
+        <!-- Основные правила -->
+        <section id="main" class="section">
+            <h2>Основные положения</h2>
+            <!-- 1.1 --> 
+            <div class="rule">
+                <div class="rule-number">1.1</div>
+                <div class="rule-content">
+                    Использование любых функций проекта означает полное согласие с настоящими правилами...
+                    <div class="penalty2">[✓]</div>
+                </div>
+            </div>
+                        <!-- 1.2 --> 
+                 <div class="rule">
+                <div class="rule-number">1.2</div>
+                <div class="rule-content">
+                   Администрация имеет право заблокировать аккаунт без объяснения причин и возможности разбана.
+                    <div class="penalty2">[✓]</div>
+                </div>
+            </div>
+                        <!-- 1.3 --> 
+                 <div class="rule">
+                <div class="rule-number">1.3</div>
+                <div class="rule-content">
+                             Средства, потраченные на услуги, являются пожертвованиями и не подлежат возврату. Администрация не несёт ответственности за ошибки при оплате.
+                        <div class="penalty2">[✓]</div>
+                </div>
+            </div>
+                        <!-- 1.4 --> 
+                 <div class="rule">
+                <div class="rule-number">1.4</div>
+                <div class="rule-content">
+                        Администрация не возвращает утраченные ресурсы и прогресс, даже если потеря произошла из-за багов, сбоев или других технических причин.
+                         <div class="penalty2">[✓]</div>
+                </div>
+            </div>
+                        <!-- 1.5 --> 
+                 <div class="rule">
+                <div class="rule-number">1.5</div>
+                <div class="rule-content">
+                           Ник не должен содержать:
+ненормативную лексику,
+оскорбления
+упоминания читов,
+названия сторонних проектов,
+сходства с никами команды проекта (например: d2ffuss1a).
+
+*При блокировке(выдаётся навсегда, без возможности обжалования) все ресурсы и т.д., связанные с аккаунтом, считаются  утерянными.
+                    <div class="penalty">[Бан ∞]
+</div>
+<div class="penalty2">[✓]</div>
+                        </div>
+            </div>
+                        <!-- 1.6 --> 
+                 <div class="rule">
+                <div class="rule-number">1.6</div>
+                <div class="rule-content">
+                    Правила могут быть изменены без предварительного уведомления.
+                    <div class="penalty2">[✓]</div>
+                        </div>
+                        <!-- 1.7 --> 
+                 <div class="rule">
+                <div class="rule-number">1.7</div>
+                <div class="rule-content">
+                            Любые виды казино запрещены. (от предупреждения до онулирования аккаунта)
+                    <div class="penalty">[✗]</div>
+                          <div class="penalty2">[Наказания нет]</div>
+                        </div>
+            </div>
+                        <!-- 1.8 --> 
+                 <div class="rule">
+                <div class="rule-number">1.8</div>
+                <div class="rule-content">
+                     Администрация не несет ответственности за происходящее не на их проекте. К сожалению, если вы оказались жертвой мошенника, мы не можем вернуть вам ресурсы, однако обратиться в тех. поддержку можно.
+                    <div class="penalty2">[✓]</div>
+                       <div class="penalty2">[Будьте осторожны]</div>
+                        </div>
+            </div>
+                                    <!-- 1.9 --> 
+                 <div class="rule">
+                <div class="rule-number">1.9</div>
+                <div class="rule-content">
+                           Администрация и модерация не понимает шуток. Любое сообщение, нарушающее правила, даже под видом шутки, может повлечь за собой наказание.
+                    <div class="penalty2">[✓]</div>
+                        </div>
+            </div>
+                                    <!-- 1.10--> 
+                 <div class="rule">
+                <div class="rule-number">1.10</div>
+                <div class="rule-content">
+                            Администрация имеет право выдавать блокировки на срок, превышающий указанный в правилах, или назначать иные меры наказания по своему усмотрению.
+                        <div class="penalty2">[✓]</div>
+                        </div>
+            </div>
+            <div class="rule">
+            <duv class="rule-number">1.11</div>
+            <div class="rule-content">
+             На обжалование наказания даётся 5 дня с момента его выдачи.
+               <div class="penalty2">[✓]</div>
+            <!-- Добавьте остальные правила -->
+        </section>
+
+        <!-- Игровые правила -->
+        <section id="game" class="section">
+            <h2>Игровой процесс</h2>
+            <div class="rule">
+                <div class="rule-number">2.1</div>
+                <div class="rule-content">
+                    Запрещена передача или продажа аккаунта.
+                    <div class="penalty">Бан 6 месяцев</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                <div class="rule">
+                <div class="rule-number">2.2</div>
+                <div class="rule-content">
+                      Запрещен взлом аккаунтов и их привязка.
+                    <div class="penalty">Пермаментный бан</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                   <div class="rule">
+                <div class="rule-number">2.3</div>
+                <div class="rule-content">
+                      Запрещается использование или хранение стороннего ПО, дающего игровое преимущество. 
+                    <div class="penalty">IP бан на 20 дней</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                   <div class="rule">
+                <div class="rule-number">2.4</div>
+                <div class="rule-content">
+                      Запрещён тим с пользователем запрещённого ПО. [IP-бан 6 дней]
+-- Признание сокращает время блокировки до 3 дней.
+                    <div class="penalty">IP бан на 6 дней</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                   <div class="rule">
+                <div class="rule-number">2.2</div>
+                <div class="rule-content">
+                      
+                    <div class="penalty">Пермаментный бан</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                   <div class="rule">
+                <div class="rule-number">2.2</div>
+                <div class="rule-content">
+                      
+                    <div class="penalty">Пермаментный бан</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                   <div class="rule">
+                <div class="rule-number">2.2</div>
+                <div class="rule-content">
+                      
+                    <div class="penalty">Пермаментный бан</div>
+                        <div class="penalty2">[✓]</div>
+                </div>
+                
+            </div>
+            
+            <!-- Добавьте остальные правила -->
+        </section>
+ 
+        <!-- Дополнительные разделы -->
+        <section id="penalties" class="section">
+            <h2>Частые вопросы</h2>
+             <div class="rule-number">Наказания</div>
+              <div class="rule-content">
+                    На обжалования наказания даётся время.
+                    <div class="penalty2">5 дней</div>
+                </div>
+                  <div class="rule-number">Соц. стеи</div>
+                         <div class="rule-content">
+                     Скоро...
+                    <div class="penalty">Пока недоступно</div>
+                </div>
+            <!-- Добавьте содержание -->
+        </section>
+
+      
+            <!-- Добавьте содержание -->
+        </section>
+    </div>
+
+    <footer class="footer">
+        © 2025 ZWorld. Все права защищены
+        by AductWork
+    </footer>
+
+    <script>
+        // Анимация секций при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Плавный скролл для навигации
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Параллакс эффект
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.parallax-bg').style.transform = 
+                `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            anime({
+                targets: '.floating-circles div',
+                translateX: () => ['-10%', '10%'],
+                translateY: () => ['-5%', '15%'],
+                duration: 20000,
+                easing: 'easeInOutQuad',
+                loop: true,
+                direction: 'alternate'
+            });
+        });
+    </script>
+</body>
+</html>
